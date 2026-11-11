@@ -1,0 +1,99 @@
+{
+  "branch": "feature/routing-formalization",
+  "commit": "89c785f14cfbe4091b527d1059556799e33312b0",
+  "observedDate": "2026-11-11",
+  "method": "git archive / git show 固定提交；沒有重跑 Runtime 或 SDK。",
+  "skill": {
+    "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "commit": "6ae86f61f520d6ca229d2f40e070410638c908c5",
+    "entry": ".claude/skills/ui-ux-pro-max/SKILL.md",
+    "applied": "developer documentation knowledge base → Minimalism & Swiss Style；語意色、清晰層級、鍵盤操作與來源追溯。圖型搜尋不符合控制流程，改用人工編排泳道與關係圖。"
+  },
+  "sources": [
+    {
+      "title": "協調與控制",
+      "path": "src/applications/agent-runtime/Application/AgentOrchestrator.cs",
+      "sha256": "9ce4b17c32ce1d2fea2184d4818bf55c34e49e055173db091e4554c6f776ec12",
+      "claim": "三服務協調、準備／執行／接受、暫停與通知；FlowOpenRequest 未傳 Constraints。"
+    },
+    {
+      "title": "預設 DI",
+      "path": "src/applications/agent-runtime/Configurations/RuntimeServiceRegistry.cs",
+      "sha256": "028318ce5fb02639dd4b928713e2ac1cd910fc04216d2fd8c5ea10cb3a59c2cd",
+      "claim": "已註冊既有驗證器；尚未註冊 IVerificationExecutor / IToolRegistry。"
+    },
+    {
+      "title": "Runtime 驗證",
+      "path": "src/applications/agent-runtime/Application/RuntimeService.cs",
+      "sha256": "9cc40e2c6d0991a7687d4457a82f37fe2fb28f855fa7f63fce2d0fe6ec242a81",
+      "claim": "呼叫前儲存紀錄，以 Reconcile 核對執行狀態；未注入 executor 時沿用原檢查結果。"
+    },
+    {
+      "title": "程序邊界",
+      "path": "src/applications/agent-runtime/Infrastructure/Agents/AgentProcessAdapter.cs",
+      "sha256": "de90b2a23fcb28a8f9d172520725556eb60386f64547ce3339199d03486b2357",
+      "claim": "C# 啟動 Worker 程序，並核對執行紀錄。"
+    },
+    {
+      "title": "Worker 真實版本",
+      "path": "src/applications/agent-runtime/worker/worker.py",
+      "sha256": "167c72a2251920ac6aca4f85041309680ccceef53ce6928b4eb484917c46f46f",
+      "claim": "invocation v4、response v2、bridge v3；Codex 與 Claude 分流。"
+    },
+    {
+      "title": "Worker 舊說明",
+      "path": "src/applications/agent-runtime/worker/README.md",
+      "sha256": "3aa2ed29c7f3624405314d5f806e7251b43c86449e7c5d27463b018c597f967f",
+      "claim": "仍描述 invocation v3 / bridge-2 / 單 Codex，與程式不一致。"
+    },
+    {
+      "title": "Routing 服務",
+      "path": "src/applications/agent-runtime/Application/Flow/RoutingRegisterService.cs",
+      "sha256": "d857132395198742d4ac9c26e70f28ef154cfef48dba035fdbc7b6aa32df9c37",
+      "claim": "Flow 建立、結果接受、獨立保存與人工處理。"
+    },
+    {
+      "title": "Routing 狀態",
+      "path": "src/applications/agent-runtime/Domain/Routing/FlowHolder.Hold.cs",
+      "sha256": "56703871ad497c763a1f126365b9bf0a8ab4ce897e4f4af6c4cf5e764cc46271",
+      "claim": "子流程、子流程呼叫紀錄、暫停、等待核准、驗收重驗。"
+    },
+    {
+      "title": "人工操作入口",
+      "path": "src/applications/agent-runtime/Application/HumanDecisions/HumanDecisionService.cs",
+      "sha256": "e5fab70f8aaf8eb3f8ea06109960b05ddd5741c8d611ffdabec9ca1ab466aded",
+      "claim": "只儲存人工處理結果，不自動執行或繼續流程。"
+    },
+    {
+      "title": "CLI 解析器",
+      "path": "src/applications/agent-runtime/Host/CommandLineParser.cs",
+      "sha256": "77a593c3fe82f8961342b5af52e3b4c6cb1b8460602e8b5bcfb4182207fe2f7f",
+      "claim": "只接受 --workitem、--routing。"
+    },
+    {
+      "title": "工具驗證",
+      "path": "src/applications/agent-runtime/Application/Verification/VerificationExecutor.cs",
+      "sha256": "66a1b81f457e5a3091a9d031f521e6f6939169a6c5c35644136ec6db5499e410",
+      "claim": "工具登錄、標準輸入、程序、輸出轉換、判定與證據。"
+    },
+    {
+      "title": "結果判定",
+      "path": "src/applications/agent-runtime/Domain/Responses/Gate.cs",
+      "sha256": "a10af8144b12c1268e41580d8f1b4061029980db71c5336bdab96be094890057",
+      "claim": "檢查值／狀態與證據識別資訊；Worker 自報不能替代證據。"
+    },
+    {
+      "title": "實作分批狀態",
+      "path": "core/progress/AgentRuntime/implementation/state.json",
+      "sha256": "91dad404fdafa2596fc9c909a59e6608776db48e1f73fdcae577299b14bac962",
+      "claim": "文件記載 S1～S6 done、S7 pending；不是本次測試。"
+    },
+    {
+      "title": "分支目前交接",
+      "path": "core/progress/AgentRuntime/handoff-current.md",
+      "sha256": "3617718266700b321562f96b39d04db039e57665af4fbe2526fa559bf84a56e4",
+      "claim": "S7 清單與目前回歸數量。"
+    }
+  ],
+  "publication": "公開閱讀版；來源原始碼與測試證據未隨頁面公開。"
+}
