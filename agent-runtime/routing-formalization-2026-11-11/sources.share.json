@@ -93,6 +93,48 @@
       "path": "core/progress/AgentRuntime/handoff-current.md",
       "sha256": "3617718266700b321562f96b39d04db039e57665af4fbe2526fa559bf84a56e4",
       "claim": "S7 清單與目前回歸數量。"
+    },
+    {
+      "title": "WorkQueue 服務",
+      "path": "src/applications/agent-runtime/Application/Work/WorkQueueService.cs",
+      "sha256": "fff7082b14851c19436c691871ee537e63fb752ad2ec4173b592ec30fd0e628e",
+      "claim": "初始化與恢復、開始 Job、沿用流程執行 ID，收到結束確認後前進。"
+    },
+    {
+      "title": "工作清單聚合",
+      "path": "src/applications/agent-runtime/Domain/Work/WorkQueueAggregate.cs",
+      "sha256": "c13d4b65bb02a37e1e2a00c8566dd8dd564c33e3ca87e1c4af5aae52bde701f9",
+      "claim": "Queue 管理成員版本與目前位置，分別記錄完成及中止工作。"
+    },
+    {
+      "title": "工作與 Job 狀態",
+      "path": "src/applications/agent-runtime/Domain/Work/WorkLedger.cs",
+      "sha256": "b8452822a8e1a106d4d60701f490951af0248f00c734bb88925c12d56b5ce35c",
+      "claim": "完成通知不前進；確認流程結束才移動 Job。中止同一 Work 的剩餘 Job。"
+    },
+    {
+      "title": "單一 Job 狀態",
+      "path": "src/applications/agent-runtime/Domain/Work/WorkJob.cs",
+      "sha256": "497e293211c9bf3b4b1dd56a07a0bcd54eb86d75b67caf3acf45ede9fd3096b6",
+      "claim": "Job 開始、完成、中止與流程結束確認的狀態變更。"
+    },
+    {
+      "title": "完成通知處理",
+      "path": "src/applications/agent-runtime/Application/Events/FlowCompletedHandler.cs",
+      "sha256": "42396d920869e2ef95bd52ae57eb0c88d73c087ae52648a87bffb257dc7f44fc",
+      "claim": "接受並保存流程完成事實，不前進工作位置。"
+    },
+    {
+      "title": "中止通知處理",
+      "path": "src/applications/agent-runtime/Application/Events/FlowAbortedHandler.cs",
+      "sha256": "3c4f62aff34958fed92eccce75163f018cc7f9e1fc1394460a6a71532cd09768",
+      "claim": "接受並保存中止事實，標記同一 Work 的剩餘 Job。"
+    },
+    {
+      "title": "Runtime 判斷與歷程",
+      "path": "src/applications/agent-runtime/Domain/Execution/AgentRuntime.cs",
+      "sha256": "a8035bee2b17a9621f651354d0e16f38d79027e2ec3b454ff6a3ad6955896caa",
+      "claim": "Gate、補正上限、政策約束、證據重讀、結束結果與保存紀錄。"
     }
   ],
   "publication": "公開閱讀版；來源原始碼與測試證據未隨頁面公開。"
